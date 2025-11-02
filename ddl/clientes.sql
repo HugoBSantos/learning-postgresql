@@ -31,7 +31,3 @@ INSERT INTO clientes
 VALUES
 	(2, 'Geraldo', '12343299929', '56565', '1987-01-04', 'M', 'Engenheiro', 'Brasileira',
 	'Rua das Limas', '200', 'Ap', 'Centro', 'Poro Uniao', 'SC', '');
-
-DELETE FROM clientes;
-
-SELECT * FROM clientes;
