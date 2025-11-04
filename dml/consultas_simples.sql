@@ -1,33 +1,64 @@
-SELECT * FROM clientes;
+-- Exercícios – consultas simples
 
-SELECT nome, data_nascimento FROM clientes;
+-- 1. O nome, o gênero e a profissão de todos os clientes, ordenado pelo nome em ordem decrescente
+SELECT nome, genero, profissao FROM clientes
+ORDER BY nome DESC;
 
-SELECT 
-	nome,
-	data_nascimento AS "Data de nascimento"
-FROM clientes;
+-- 2. Os clientes que tenham a letra “R” no nome
+SELECT * FROM clientes
+WHERE nome LIKE '%r%';
 
-SELECT 'CPF: ' || cpf || ' RG: ' || rg AS "CPF e RG" FROM clientes;
-
-SELECT * FROM clientes LIMIT 5;
-
-SELECT nome, data_nascimento FROM clientes
-WHERE data_nascimento > '2000-01-01'; -- Filtra somente os clientes que nasceram depois dessa data
-
-SELECT nome FROM clientes
+-- 3. Os clientes que o nome inicia com a letra “C”
+SELECT * FROM clientes
 WHERE nome LIKE 'C%';
 
-SELECT nome FROM clientes
-WHERE nome LIKE '%c%'; -- Clientes que possuem a letra C no meio do nome
+-- 4. Os clientes que o nome termina com a letra “A”
+SELECT * FROM clientes
+WHERE nome LIKE '%a';
 
-SELECT nome, data_nascimento FROM clientes
-WHERE data_nascimento BETWEEN '1990-01-01' AND '1998-01-01';
+-- 5. Os clientes que moram no bairro “Centro”
+SELECT * FROM clientes
+WHERE bairro = 'Centro';
 
-SELECT nome, rg FROM clientes
-WHERE rg IS NULL;
+-- 6. Os clientes que moram em complementos que iniciam com a letra “A”
+SELECT * FROM clientes
+WHERE complemento LIKE 'A%';
 
-SELECT nome FROM clientes
-ORDER BY nome ASC;
+-- 7. Somente os clientes do sexo feminino
+SELECT * FROM clientes
+WHERE genero = 'F';
 
-SELECT nome FROM clientes
-ORDER BY nome DESC;
+-- 8. Os clientes que não informaram o CPF
+SELECT * FROM clientes
+WHERE cpf IS NULL;
+
+-- 9. O nome e a profissão dos clientes, ordenado em ordem crescente pelo nome da profissão
+SELECT nome, profissao FROM clientes
+ORDER BY profissao ASC;
+
+-- 10. Os clientes de nacionalidade “Brasileira”
+SELECT * FROM clientes
+WHERE nacionalidade = 'Brasileira';
+
+-- 11. Os clientes que informaram o número da residência
+SELECT * FROM clientes
+WHERE numero IS NOT NULL;
+
+-- 12. Os clientes que moram em Santa Catarina
+SELECT * FROM clientes
+WHERE uf = 'SC';
+
+-- 13. Os clientes que nasceram entre 01/01/2000 e 01/01/2002
+SELECT * FROM clientes
+WHERE data_nascimento BETWEEN '2000-01-01' AND '2002-01-01';
+
+-- 14. O nome do cliente e o logradouro, número, complemento, bairro, município e UF concatenado de todos os clientes
+SELECT nome || ': ' ||
+	logradouro || 
+	', N° ' || numero ||
+	', ' || complemento ||
+	', ' || bairro ||
+	', ' || municipio ||
+	', ' || uf
+	AS endereco
+FROM clientes;
