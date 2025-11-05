@@ -63,3 +63,25 @@ WHERE id = 8;
 UPDATE clientes
 SET id_nacionalidade = 4
 WHERE id IN (9,13);
+
+
+
+-- Complemento
+ALTER TABLE clientes
+DROP complemento;
+
+ALTER TABLE clientes
+ADD id_complemento INTEGER;
+
+ALTER TABLE clientes
+ADD CONSTRAINT
+	fk_cln_idcomplemento FOREIGN KEY (id_complemento)
+	REFERENCES complementos (id);
+
+UPDATE clientes
+SET id_complemento = 1
+WHERE id IN (1,4,9,13);
+
+UPDATE clientes
+SET id_complemento = 2
+WHERE id IN (2,3,7);
