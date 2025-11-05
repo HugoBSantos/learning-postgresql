@@ -85,3 +85,33 @@ WHERE id IN (1,4,9,13);
 UPDATE clientes
 SET id_complemento = 2
 WHERE id IN (2,3,7);
+
+
+
+-- Bairro
+ALTER TABLE clientes
+DROP bairro;
+
+ALTER TABLE clientes
+ADD id_bairro INTEGER;
+
+ALTER TABLE clientes
+ADD CONSTRAINT
+	fk_cln_idbairro FOREIGN KEY (id_bairro)
+	REFERENCES bairros (id);
+
+UPDATE clientes
+SET id_bairro = 1
+WHERE id IN (2,3,6,8,9);
+
+UPDATE clientes
+SET id_bairro = 2
+WHERE id IN (4,5);
+
+UPDATE clientes
+SET id_bairro = 3
+WHERE id = 7;
+
+UPDATE clientes
+SET id_bairro = 4
+WHERE id IN (1,12,13);
