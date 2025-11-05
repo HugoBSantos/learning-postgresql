@@ -115,3 +115,52 @@ WHERE id = 7;
 UPDATE clientes
 SET id_bairro = 4
 WHERE id IN (1,12,13);
+
+
+
+-- Município
+ALTER TABLE clientes
+DROP municipio;
+
+ALTER TABLE clientes
+DROP uf;
+
+ALTER TABLE clientes
+ADD id_municipio INTEGER;
+
+ALTER TABLE clientes
+ADD CONSTRAINT
+	fk_cln_idmunicipio FOREIGN KEY (id_municipio)
+	REFERENCES municipios (id);
+
+UPDATE clientes
+SET id_municipio = 1
+WHERE id IN (8,9);
+
+UPDATE clientes
+SET id_municipio = 2
+WHERE id IN (1,2,10,11);
+
+UPDATE clientes
+SET id_municipio = 3
+WHERE id IN (14,15);
+
+UPDATE clientes
+SET id_municipio = 4
+WHERE id = 17;
+
+UPDATE clientes
+SET id_municipio = 5
+WHERE id IN (4,5);
+
+UPDATE clientes
+SET id_municipio = 6
+WHERE id = 7;
+
+UPDATE clientes
+SET id_municipio = 7
+WHERE id IN (3,12);
+
+UPDATE clientes
+SET id_municipio = 8
+WHERE id IN (6,13);
