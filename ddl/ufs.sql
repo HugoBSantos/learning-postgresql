@@ -19,5 +19,3 @@ VALUES (3, 'Santa Catarina', 'SC');
 
 INSERT INTO ufs (id, nome, sigla)
 VALUES (4, 'Paraná', 'PR');
-
-SELECT * FROM ufs;
