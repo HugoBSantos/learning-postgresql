@@ -19,3 +19,9 @@ VALUES (3, 'Santa Catarina', 'SC');
 
 INSERT INTO ufs (id, nome, sigla)
 VALUES (4, 'Paraná', 'PR');
+
+INSERT INTO ufs (id, nome, sigla)
+VALUES (5, 'Minas Gerais', 'MG');
+
+INSERT INTO ufs (id, nome, sigla)
+VALUES (6, 'Rio de Janeiro', 'RJ');
